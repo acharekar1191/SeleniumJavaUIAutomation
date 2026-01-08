@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="QKart Test Suite" verbose="4" thread-count="4" parallel="tests">
+	<listeners>
+			<listener class-name="com.qa.opencart.listeners.ExtentReportListener" />
+			<listener class-name="com.qa.opencart.listeners.TestAllureListener" />
+			<!-- <listener class-name="com.qa.opencart.listeners.AnnotationTransformer" /> -->
+	</listeners>
+
+	<!-- <test name="QKart HomePage Test">
+		<classes>
+			<class name="com.qa.opencart.tests.HomePageTest"></class>
+		</classes>
+	</test>
+	
+	<test name="Qkart Login Test">
+		<classes>
+			<class name="com.qa.opencart.tests.LoginPageTest"></class>
+		</classes>
+	</test> -->
+	
+	<test name="Qkart Login Test with Invalid Credentials">
+		<classes>
+			<class name="com.qa.opencart.tests.LoginPageNegativeTest"></class>
+		</classes>
+	</test>
+	
+	<!--<test name="Qkart Registration Test">
+		<classes>
+			<class name="com.qa.opencart.tests.RegisterUserTest"></class>
+		</classes>
+	</test>
+	
+	<test name="QKart CartPage Test">
+		<classes>
+			<class name="com.qa.opencart.tests.CartPageTest"></class>
+		</classes>
+	</test> -->
+</suite>

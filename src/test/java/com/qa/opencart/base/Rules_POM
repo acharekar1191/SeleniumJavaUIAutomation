@@ -1,0 +1,24 @@
+Golden Rules for POM (Memorize these)
+🔑 Rule 1
+
+BaseTest initializes only the landing page
+
+🔑 Rule 2
+
+Navigation methods return the next page
+
+🔑 Rule 3
+
+Tests should NEVER do new Page() directly
+
+🔑 Rule 4
+
+Page existence = user navigation, not object creation
+
+Real Interview Answer
+
+“We initialize only the entry page in BaseTest. All other page objects are returned via 
+navigation methods to ensure correct page state, lazy loading, and maintainable test flow.”
+
+To show up the allure report:
+allure serve allure-results

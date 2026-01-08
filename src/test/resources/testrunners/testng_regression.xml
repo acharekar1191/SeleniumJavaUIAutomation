@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestNgDemo">
+	<test name="QkartTest">
+		<classes>
+			<class name="tests.LoginTests"></class>
+			<class name="tests.RegisterTests"></class>
+		</classes>
+	</test>
+</suite>
