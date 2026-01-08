@@ -45,7 +45,7 @@ public class CartPageTest extends BaseTest{
 	}
 	
 		@Test(description = "verifyUserCanIncreaseProductQuantity",priority = 1)
-	public void addQtyTest() {
+	public void addProductQtyTest() {
 		searchPage = homePage.searchProduct(productName);
 		cartPage = searchPage.clickAddToCartButton(productName);
 		
@@ -58,5 +58,5 @@ public class CartPageTest extends BaseTest{
 		
 		assertEquals(actualOrderTotal, expectedOrderTotal);
 	}
-
+		
 }

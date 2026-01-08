@@ -9,6 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.qa.opencart.factory.DriverFactory;
 import com.qa.opencart.pages.CartPage;
+import com.qa.opencart.pages.CheckoutPage;
 import com.qa.opencart.pages.HomePage;
 import com.qa.opencart.pages.LoginPage;
 import com.qa.opencart.pages.RegistrationPage;
@@ -24,6 +25,7 @@ public class BaseTest{
 	public SearchPage searchPage;
 	public RegistrationPage registerPage;
 	public CartPage cartPage;
+	public CheckoutPage checkoutPage;
 	public SoftAssert softAssert;
 	
 	

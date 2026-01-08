@@ -4,13 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.qa.opencart.utils.ElementUtil;
-import com.qa.opencart.utils.JavaScriptUtil;
+//import com.qa.opencart.utils.JavaScriptUtil;
 
 public class CartPage {
 	
 	private WebDriver driver;
 	private ElementUtil eu;
-	private JavaScriptUtil jsUtil;
+	//private JavaScriptUtil jsUtil;
 	
 	private By checkoutBtn = By.xpath("//button[text()='Checkout']");
 	private By orderTotal = By.xpath("//div[@data-testid='cart-total']");
@@ -19,7 +19,7 @@ public class CartPage {
 	public CartPage(WebDriver driver) {
 		this.driver = driver;
 		eu = new ElementUtil(driver);
-		jsUtil = new JavaScriptUtil(driver);
+		//jsUtil = new JavaScriptUtil(driver);
 		
 	}
 	
@@ -111,5 +111,9 @@ public class CartPage {
 		return eu.getElements(emptyCart).size()==0 ;
 	}
 	
+	public CheckoutPage clickCheckout() {
+		eu.doClick(checkoutBtn);
+		return new CheckoutPage(driver);
+	}
 	
 }

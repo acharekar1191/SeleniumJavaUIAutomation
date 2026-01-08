@@ -36,6 +36,7 @@ public class ElementUtil {
 		 * @return
 		 */
 		
+		
 		public WebElement getElement(By locator) {
 			WebElement element = driver.findElement(locator);
 			if(Boolean.parseBoolean(DriverFactory.highlight)){
@@ -266,6 +267,15 @@ public class ElementUtil {
 		            toastLocator, expectedText));
 
 		    return driver.findElement(toastLocator).getText().trim();
+		}
+		
+		public boolean waitForTextToBePresent(By locator, String expectedText, int timeout) {
+		    try {
+		        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+		        return wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, expectedText));
+		    } catch (TimeoutException e) {
+		        return false;
+		    }
 		}
 
 }

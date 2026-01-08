@@ -103,5 +103,9 @@ public class HomePage {
 		eu.waitForVisibilityOfElement(loginBtnFromHomePage, 5).click();
 		return new LoginPage(driver);
 	}
+	
+	public CartPage getCart() {
+		return new CartPage(driver);
+	}
 
 }
