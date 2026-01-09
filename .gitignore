@@ -3,8 +3,7 @@ screenshots/
 screenshot/
 test-output/
 build/
-
-test-execution.log
+logs/
 ##############################
 ## Java
 ##############################
