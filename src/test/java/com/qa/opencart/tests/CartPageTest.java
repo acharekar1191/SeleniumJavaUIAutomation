@@ -59,4 +59,5 @@ public class CartPageTest extends BaseTest{
 		assertEquals(actualOrderTotal, expectedOrderTotal);
 	}
 		
+		
 }

@@ -150,4 +150,5 @@ public class SearchPage {
         return new CartPage(driver);
     }
 	
+	
 }

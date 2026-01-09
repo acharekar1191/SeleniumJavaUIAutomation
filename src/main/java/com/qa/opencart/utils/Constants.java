@@ -22,6 +22,7 @@ public class Constants {
 	public static final String Roadster_price = "$30";
 	
 	public static final String ADDRESS1 = "GK Society A wing 1101 Akola Maharashtra";
+	public static final String ADDRESS2 = "SKE Skyes , Road 411899 MP";
 	
 	
 	/**

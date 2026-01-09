@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.opencart.base.BaseTest;
+import com.qa.opencart.utils.Constants;
 
 public class CheckoutPageTest extends BaseTest{
 	String productName,seachKeyword;
@@ -43,8 +44,8 @@ public class CheckoutPageTest extends BaseTest{
 		assertTrue(cartPage.isProductPresentInCart(productName));
 		
 		checkoutPage = cartPage.clickCheckout();	
-		checkoutPage.addNewAddress();
-		checkoutPage.selectTheAddress();
+		checkoutPage.addNewAddressIfNotExists(Constants.ADDRESS2);
+		checkoutPage.selectTheAddress(Constants.ADDRESS2);
 		checkoutPage.clickPlaceOrder();
 		
 		Assert.assertTrue(checkoutPage.isOrderPlaced());

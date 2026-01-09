@@ -22,3 +22,9 @@ navigation methods to ensure correct page state, lazy loading, and maintainable 
 
 To show up the allure report:
 allure serve allure-results
+
+Commands :
+mvn clean install -Denv="qa"   
+mvn clean install        ==> No env is mentioned
+
+allure serve allure-results    >>> Go to framework dir and run these commands.

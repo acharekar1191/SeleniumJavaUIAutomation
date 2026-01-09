@@ -17,14 +17,12 @@
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest"></class>
 		</classes>
-	</test> -->
-	
+	</test> 	
 	<test name="Qkart Login Test with Invalid Credentials">
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageNegativeTest"></class>
 		</classes>
-	</test>
-	
+	</test> -->
 	<!--<test name="Qkart Registration Test">
 		<classes>
 			<class name="com.qa.opencart.tests.RegisterUserTest"></class>
@@ -36,4 +34,10 @@
 			<class name="com.qa.opencart.tests.CartPageTest"></class>
 		</classes>
 	</test> -->
+	<test name="QKart Checkout Page Test">
+		<classes>
+			<class name="com.qa.opencart.tests.CheckoutPageTest"></class>
+		</classes>
+	</test>
+	
 </suite>

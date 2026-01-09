@@ -57,4 +57,5 @@ public class LoginPageTest extends BaseTest{
 		assertTrue(loginPage.isLogoutBtnVisible());
 	}
 
+	
 }

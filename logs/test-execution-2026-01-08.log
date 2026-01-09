@@ -1,0 +1,39 @@
+2026-01-08 13:33:09 INFO  DriverFactory:81 - Running on Env : null
+2026-01-08 13:33:09 INFO  DriverFactory:84 - No env is specified so executing tests on QA.
+2026-01-08 13:33:09 INFO  DriverFactory:45 - Running tests on Browser : chrome
+2026-01-08 13:35:07 INFO  DriverFactory:81 - Running on Env : null
+2026-01-08 13:35:07 INFO  DriverFactory:84 - No env is specified so executing tests on QA.
+2026-01-08 13:35:07 INFO  DriverFactory:45 - Running tests on Browser : chrome
+2026-01-08 13:37:13 INFO  DriverFactory:81 - Running on Env : null
+2026-01-08 13:37:13 INFO  DriverFactory:84 - No env is specified so executing tests on QA.
+2026-01-08 13:37:13 INFO  DriverFactory:45 - Running tests on Browser : chrome
+2026-01-08 13:39:33 INFO  DriverFactory:81 - Running on Env : null
+2026-01-08 13:39:33 INFO  DriverFactory:84 - No env is specified so executing tests on QA.
+2026-01-08 13:39:33 INFO  DriverFactory:45 - Running tests on Browser : chrome
+2026-01-08 13:47:23 INFO  DriverFactory:81 - Running on Env : null
+2026-01-08 13:47:23 INFO  DriverFactory:84 - No env is specified so executing tests on QA.
+2026-01-08 13:47:23 INFO  DriverFactory:45 - Running tests on Browser : chrome
+2026-01-08 13:48:02 INFO  CheckoutPageTest:40 - Msg : Order placed successfully!
+2026-01-08 13:50:33 INFO  DriverFactory:81 - Running on Env : null
+2026-01-08 13:50:33 INFO  DriverFactory:84 - No env is specified so executing tests on QA.
+2026-01-08 13:50:33 INFO  DriverFactory:45 - Running tests on Browser : chrome
+2026-01-08 13:51:12 INFO  CheckoutPageTest:40 - Msg : Order placed successfully!
+2026-01-08 14:04:51 INFO  DriverFactory:81 - Running on Env : null
+2026-01-08 14:04:51 INFO  DriverFactory:84 - No env is specified so executing tests on QA.
+2026-01-08 14:04:51 INFO  DriverFactory:45 - Running tests on Browser : chrome
+2026-01-08 19:18:17 INFO  DriverFactory:81 - Running on Env : null
+2026-01-08 19:18:17 INFO  DriverFactory:84 - No env is specified so executing tests on QA.
+2026-01-08 19:18:17 INFO  DriverFactory:45 - Running tests on Browser : chrome
+2026-01-08 19:24:01 INFO  DriverFactory:81 - Running on Env : null
+2026-01-08 19:24:01 INFO  DriverFactory:84 - No env is specified so executing tests on QA.
+2026-01-08 19:24:01 INFO  DriverFactory:45 - Running tests on Browser : chrome
+2026-01-08 19:24:32 INFO  CheckoutPage:59 - 
+2026-01-08 19:24:32 INFO  CheckoutPage:59 - 
+2026-01-08 19:24:32 INFO  CheckoutPage:59 - 
+2026-01-08 19:33:50 INFO  DriverFactory:81 - Running on Env : null
+2026-01-08 19:33:50 INFO  DriverFactory:84 - No env is specified so executing tests on QA.
+2026-01-08 19:33:50 INFO  DriverFactory:45 - Running tests on Browser : chrome
+2026-01-08 19:34:22 INFO  CheckoutPage:59 - 
+2026-01-08 19:34:22 INFO  CheckoutPage:59 - 
+2026-01-08 19:34:22 INFO  CheckoutPage:59 - 
+2026-01-08 19:34:22 INFO  CheckoutPage:59 - 

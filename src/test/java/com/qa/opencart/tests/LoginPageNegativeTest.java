@@ -34,4 +34,5 @@ public class LoginPageNegativeTest extends BaseTest{
 		assertEquals(actualMsg, expectedMsg, "Login validation message missmatch");
 	}
 
+	
 }
