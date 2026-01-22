@@ -28,3 +28,20 @@ mvn clean install -Denv="qa"
 mvn clean install        ==> No env is mentioned
 
 allure serve allure-results    >>> Go to framework dir and run these commands.
+
+git tag v1.0.0      > creates tag 
+git push origin v1.0.0
+
+git branch 
+git branch -vv
+
+git branch qa     >> creates a new branch
+
+java -jar jenkins.war        >>> to start jenkins on 8080 if not 
+
+java -jar jenkins.war --httpPort=9090
+
+
+ngrok : 
+pb250427@MAC-6WY34Y2 Downloads % ngrok config add-authtoken 38KylcLpWtGIAyVxPAnGnemp3ke_5ELnn9xfDYqMJsWDT4s51
+Authtoken saved to configuration file: /Users/pb250427/Library/Application Support/ngrok/ngrok.yml

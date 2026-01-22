@@ -1,0 +1,30 @@
+brew install openjdk@17
+
+Linking to java 17 
+sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk \
+/Library/Java/JavaVirtualMachines/openjdk-17.jdk
+
+check versions present:
+/usr/libexec/java_home -V
+
+Output:
+Matching Java Virtual Machines (2):
+17.x.x (arm64) "OpenJDK" - "Java SE 17"
+11.0.24 (arm64) "Oracle Corporation" - "Java SE 11"
+
+
+Temporarily switch to Java17:
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+java -version
+
+
+Run Jenkins:
+java -jar jenkins.war
+
+http://localhost:8080
+
+Optional: Keep Java 11 as default, Java 17 only for Jenkins
+JAVA_HOME=$(/usr/libexec/java_home -v 17) java -jar jenkins.war
+
+
+Jenkins version 2.479.3 and JDK 17.

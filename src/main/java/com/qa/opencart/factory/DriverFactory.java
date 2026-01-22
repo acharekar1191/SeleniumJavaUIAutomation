@@ -40,12 +40,14 @@ public class DriverFactory {
 	//Pass By Reference
 	public WebDriver init_driver(Properties prop) {
 		String browserName = prop.getProperty("browser").trim();
+		//String browserName = System.getProperty("browser").trim();
 		highlight = prop.getProperty("highlight").trim();
 		optionsManager = new OptionsManager(prop);
-		log.info("Running tests on Browser : "+browserName);
+		log.info("Running tests on Browser : "+browserName);		
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
 			//driver = new ChromeDriver(optionsManager.getChromeOptions());
+			//log.info("Inside chrome case .... ");
 			tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
 			
 		}else if(browserName.equalsIgnoreCase("firefox")) {
@@ -56,7 +58,7 @@ public class DriverFactory {
 			//driver = new SafariDriver();
 			tlDriver.set(new SafariDriver());
 		}else {
-			log.info("Please enter the right browser: "+browserName);
+			throw new RuntimeException("Invalid browser name: " + browserName);
 		}	
 		
 		getDriver().manage().deleteAllCookies();

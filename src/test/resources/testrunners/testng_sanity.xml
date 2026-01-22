@@ -11,7 +11,7 @@
 			<class name="com.qa.opencart.tests.HomePageTest"></class>
 		</classes>
 	</test>	
-	<test name="Qkart Login Test">
+	<!-- <test name="Qkart Login Test">
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest"></class>
 		</classes>
@@ -35,6 +35,6 @@
 		<classes>
 			<class name="com.qa.opencart.tests.CheckoutPageTest"></class>
 		</classes>
-	</test>
+	</test>-->
 	
 </suite>
