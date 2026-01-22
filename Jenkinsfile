@@ -2,12 +2,10 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3'
-        jdk 'JDK17'
+        maven 'Maven'
     }
 
     parameters {
-        choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Select browser')
         choice(name: 'ENV', choices: ['qa', 'uat', 'prod'], description: 'Select environment')
     }
 
@@ -24,7 +22,6 @@ pipeline {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh """
                        mvn clean install \
-                       -Dbrowser=${params.BROWSER} \
                        -Denv=${params.ENV}
                     """
                 }
