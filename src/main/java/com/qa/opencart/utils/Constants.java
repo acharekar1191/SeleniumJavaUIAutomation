@@ -7,7 +7,7 @@ public class Constants {
 	
 	public static final String LOGIN_PAGE_TITLE = "QKart";
 	public static final String REGISTER_PAGE_HEADER = "Register";
-	public static final String LOGIN_PAGE_URL_FRACTION = "/login";
+	public static final String LOGIN_PAGE_URL_FRACTION = "/login1";
 	public static final String LOGIN_PAGE_HEADER = "Login";
 	public static final String HOME_PAGE_URL= "https://crio-qkart-frontend-qa.vercel.app/";
 	public static final String REGISTER_PAGE_URL_FRACTION="/register";

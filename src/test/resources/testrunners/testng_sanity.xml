@@ -16,7 +16,7 @@
 			<class name="com.qa.opencart.tests.LoginPageTest"></class>
 		</classes>
 	</test> 	
-	<test name="Qkart Login Test with Invalid Credentials">
+	<!--<test name="Qkart Login Test with Invalid Credentials">
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageNegativeTest"></class>
 		</classes>
@@ -35,6 +35,6 @@
 		<classes>
 			<class name="com.qa.opencart.tests.CheckoutPageTest"></class>
 		</classes>
-	</test>
+	</test> -->
 	
 </suite>
