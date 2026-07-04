@@ -39,8 +39,8 @@ public class DriverFactory {
 	
 	//Pass By Reference
 	public WebDriver init_driver(Properties prop) {
-		String browserName = prop.getProperty("browser").trim();
-		//String browserName = System.getProperty("browser").trim();
+		//String browserName = prop.getProperty("browser").trim();
+		String browserName = System.getProperty("browser").trim();
 		highlight = prop.getProperty("highlight").trim();
 		optionsManager = new OptionsManager(prop);
 		log.info("Running tests on Browser : "+browserName);		
