@@ -1,47 +1,105 @@
 pipeline {
+
     agent any
 
     tools {
-        maven 'Maven'
+        maven 'Maven3'
+        jdk 'JDK21'
     }
 
     parameters {
-        choice(name: 'ENV', choices: ['qa', 'uat', 'prod'], description: 'Select environment')
+
+        choice(
+            name: 'ENV',
+            choices: ['qa', 'uat', 'prod'],
+            description: 'Select Environment'
+        )
+
+        choice(
+            name: 'BROWSER',
+            choices: ['chrome', 'edge', 'firefox'],
+            description: 'Select Browser'
+        )
     }
 
     stages {
 
-        stage('Regression Automation Test') {
+        stage('Checkout Source Code') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh """
-                       mvn clean install \
-                       -Denv=${params.ENV}
-                    """
-                }
+
+                git branch: 'main',
+                    url: 'https://github.com/acharekar1191/SeleniumJavaUIAutomation.git'
+
+                echo 'Source code checkout completed'
             }
         }
 
-        stage('Publish Allure Results') {
+        stage('Execute Regression Suite') {
+
             steps {
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    results: [[path: 'allure-results']]
-                ])
+
+                echo "Environment : ${params.ENV}"
+                echo "Browser     : ${params.BROWSER}"
+
+                catchError(
+                    buildResult: 'UNSTABLE',
+                    stageResult: 'FAILURE'
+                ) {
+
+                    bat """
+                        mvn clean test ^
+                        -Denv=${params.ENV} ^
+                        -Dbrowser=${params.BROWSER}
+                    """
+                }
             }
         }
     }
 
     post {
+
         always {
-            archiveArtifacts artifacts: '**/target/*.log', allowEmptyArchive: true
+
+            echo 'Publishing TestNG Results'
+
+            junit(
+                testResults: 'target/surefire-reports/*.xml',
+                allowEmptyResults: true
+            )
+
+            echo 'Publishing Allure Report'
+
+            allure([
+                includeProperties: false,
+                jdk: '',
+                results: [[path: 'allure-results']]
+            ])
+
+            echo 'Archiving Logs'
+
+            archiveArtifacts(
+                artifacts: 'logs/**/*.*',
+                allowEmptyArchive: true
+            )
+
+            echo 'Archiving Screenshots'
+
+            archiveArtifacts(
+                artifacts: 'screenshots/**/*.*',
+                allowEmptyArchive: true
+            )
         }
-        failure {
-            echo '❌ Regression tests failed'
-        }
+
         success {
-            echo '✅ Regression tests passed'
+            echo '✅ All regression tests passed'
+        }
+
+        unstable {
+            echo '⚠️ Some test cases failed. Please review Allure report.'
+        }
+
+        failure {
+            echo '❌ Pipeline execution failed'
         }
     }
 }
