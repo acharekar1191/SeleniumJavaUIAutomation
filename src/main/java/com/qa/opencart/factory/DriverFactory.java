@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -17,6 +19,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverFactory {
@@ -39,21 +42,30 @@ public class DriverFactory {
 	
 	//Pass By Reference
 	public WebDriver init_driver(Properties prop) {
-		//String browserName = prop.getProperty("browser").trim();
-		String browserName = System.getProperty("browser").trim();
+		String browserName = prop.getProperty("browser").trim();
+		//String browserName = System.getProperty("browser").trim();
 		highlight = prop.getProperty("highlight").trim();
-		optionsManager = new OptionsManager(prop);
-		log.info("Running tests on Browser : "+browserName);		
+		optionsManager = new OptionsManager(prop);		
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
 			//driver = new ChromeDriver(optionsManager.getChromeOptions());
-			//log.info("Inside chrome case .... ");
-			tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
+			if(Boolean.parseBoolean(prop.getProperty("remote").trim())) {
+				log.info("Launching Chrome browser in remote mode...");
+				initRemoteWebDriver("chrome");
+			}else{
+				log.info("Launching Chrome browser in local mode...");
+				tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
+			}
 			
 		}else if(browserName.equalsIgnoreCase("firefox")) {
 			//driver = new FirefoxDriver(optionsManager.getFireFoxOptions());
+			if(Boolean.parseBoolean(prop.getProperty("remote").trim())) {
+				log.info("Launching firfox browser in remote mode...");
+				initRemoteWebDriver("firefox");
+			}else{
+			log.info("Launching Firefox browser in local mode...");
 			tlDriver.set(new FirefoxDriver(optionsManager.getFireFoxOptions()));
-			
+		}
 		}else if(browserName.equalsIgnoreCase("safari")) {
 			//driver = new SafariDriver();
 			tlDriver.set(new SafariDriver());
@@ -132,6 +144,20 @@ public class DriverFactory {
 	public static WebDriver getDriver()
 	{
 		return tlDriver.get();
+	}
+
+	public void initRemoteWebDriver(String browserName) {
+		try {
+			if(browserName.equalsIgnoreCase("chrome")) {
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl").trim()), optionsManager.getChromeOptions()));
+			}else if(browserName.equalsIgnoreCase("firefox")) {
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl").trim()), optionsManager.getFireFoxOptions()));
+			}else {
+				throw new RuntimeException("Invalid browser name: " + browserName);
+			}
+		} catch (MalformedURLException e) {
+			throw new RuntimeException("Invalid hub URL: " + prop.getProperty("huburl"), e);
+		}
 	}
 	
 	/**

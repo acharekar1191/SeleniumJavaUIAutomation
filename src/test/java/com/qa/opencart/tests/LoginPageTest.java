@@ -52,9 +52,9 @@ public class LoginPageTest extends BaseTest{
 	@Test(priority = 4)
 	public void loginTest() {	
 		homePage = loginPage.doLogin(uname, pwd);
-		assertTrue(loginPage.isLoginSuccess());
-		assertTrue(homePage.isUserLoggedIn(uname));
-		assertTrue(loginPage.isLogoutBtnVisible());
+		assertTrue(loginPage.isLoginSuccess(),"Login failed");
+		assertTrue(homePage.isUserLoggedIn(uname),"User not logged in");
+		assertTrue(loginPage.isLogoutBtnVisible(),"Logout button not visible");
 	}
 
 	
