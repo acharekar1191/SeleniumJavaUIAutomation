@@ -48,17 +48,14 @@ jobs:
           java-version: '21'
           cache: maven
 
-      - name: Install Xvfb
-        run: sudo apt-get update -y && sudo apt-get install -y xvfb
-
       - name: Run Selenium test suite
         run: |
           echo "Environment: $RUN_ENV"
           echo "Browser override: ${RUN_BROWSER:-<suite defaults>}"
           if [ -n "$RUN_BROWSER" ]; then
-            xvfb-run -a mvn clean test -Denv="$RUN_ENV" -Dbrowser="$RUN_BROWSER"
+            mvn clean test -Denv="$RUN_ENV" -Dbrowser="$RUN_BROWSER" -Dheadless=true
           else
-            xvfb-run -a mvn clean test -Denv="$RUN_ENV"
+            mvn clean test -Denv="$RUN_ENV" -Dheadless=true
           fi
 
       - name: Publish TestNG/Surefire results
