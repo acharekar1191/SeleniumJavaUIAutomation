@@ -50,7 +50,8 @@ public class CheckoutPage {
 			eu.waitForElementToBeClickable(addNewAddressBtn, 5).click();
 			eu.doSendKeys(addressBox, address);
 			eu.doClick(addBtn);
-		}	
+			eu.waitForVisibilityOfElement(By.xpath("//p[text()='"+address+"']"), 10);
+		}
 	}
 	
 	public boolean isAddressPresent(String address) {
@@ -63,7 +64,7 @@ public class CheckoutPage {
 	}
 	
 	public void selectTheAddress(String address) {
-		eu.doClick(selectAddressXpath(address));
+		eu.doJSClick(selectAddressXpath(address), 10);
 	}
 	
 	public void validateProduct() {

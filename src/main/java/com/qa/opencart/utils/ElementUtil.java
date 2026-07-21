@@ -54,7 +54,7 @@ public class ElementUtil {
 		}
 		
 		public void doClick(By locator) {
-			getElement(locator).click();
+			waitForElementToBeClickable(locator, 5).click();
 		}
 		
 		public List<WebElement> getElements(By locator) {
@@ -90,6 +90,21 @@ public class ElementUtil {
 		public WebElement waitForElementToBeClickable(By Locator, int timeout) {
 			return new WebDriverWait(driver, Duration.ofSeconds(timeout))
 			.until(ExpectedConditions.elementToBeClickable(Locator));
+		}
+
+		public WebElement waitForPresenceOfElement(By locator, int timeout) {
+			return new WebDriverWait(driver, Duration.ofSeconds(timeout))
+			.until(ExpectedConditions.presenceOfElementLocated(locator));
+		}
+
+		/**
+		 * Some MUI controls (eg. Radio/Checkbox) hide their native input via opacity:0,
+		 * which Selenium's isDisplayed()/elementToBeClickable() treats as not displayed.
+		 * Wait for presence only, then click via JS to bypass that visibility check.
+		 */
+		public void doJSClick(By locator, int timeout) {
+			WebElement element = waitForPresenceOfElement(locator, timeout);
+			jsUtil.clickElementByJS(element);
 		}
 		
 		public String waitForUrlToBe(String expectedUrl, int timeout) {
