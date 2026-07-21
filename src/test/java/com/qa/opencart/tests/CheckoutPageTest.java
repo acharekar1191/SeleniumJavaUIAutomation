@@ -48,8 +48,8 @@ public class CheckoutPageTest extends BaseTest{
 		checkoutPage.selectTheAddress(Constants.ADDRESS2);
 		checkoutPage.clickPlaceOrder();
 		
-		Assert.assertTrue(checkoutPage.isOrderPlaced());
-		Assert.assertTrue(checkoutPage.validateOrderSuccessPageUrl());
+		Assert.assertTrue(checkoutPage.isOrderPlaced(), "Order is not placed successfully");
+		Assert.assertTrue(checkoutPage.validateOrderSuccessPageUrl(), "Order success page url is not correct");
 	}
 	
 }

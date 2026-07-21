@@ -36,12 +36,12 @@ public class CartPageTest extends BaseTest{
 		searchPage.selectSize(productName, "8");
 		cartPage = searchPage.clickAddToCartButton(productName);
 		
-		assertTrue(cartPage.isProductPresentInCart(productName));
-		assertEquals(cartPage.getDisplayedQuantity(productName),1);
-		assertEquals(cartPage.getProductPriceFromCart(productName), Constants.Roadster_price);
-		assertEquals(cartPage.getOrderTotal(),Constants.Roadster_price);
+		assertTrue(cartPage.isProductPresentInCart(productName), "Product is not present in the cart");
+		assertEquals(cartPage.getDisplayedQuantity(productName),1, "Product quantity is not as expected");
+		assertEquals(cartPage.getProductPriceFromCart(productName), Constants.Roadster_price, "Product price is not as expected");
+		assertEquals(cartPage.getOrderTotal(),Constants.Roadster_price, "Order total is not as expected");
 		assertTrue(cartPage.isCheckOutBtnDisplayed());
-		
+			
 	}
 	
 		@Test(description = "verifyUserCanIncreaseProductQuantity",priority = 1)
@@ -56,7 +56,7 @@ public class CartPageTest extends BaseTest{
 		int expectedOrderTotal = unitPrice * 2;
 		int actualOrderTotal = Integer.parseInt(cartPage.getOrderTotal().replace("$", ""));
 		
-		assertEquals(actualOrderTotal, expectedOrderTotal);
+		assertEquals(actualOrderTotal, expectedOrderTotal, "Order total is not as expected after increasing product quantity");
 	}
 		
 		
