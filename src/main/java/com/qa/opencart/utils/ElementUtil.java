@@ -97,6 +97,11 @@ public class ElementUtil {
 			.until(ExpectedConditions.presenceOfElementLocated(locator));
 		}
 
+		public void waitForInvisibilityOfElement(By locator, int timeout) {
+			new WebDriverWait(driver, Duration.ofSeconds(timeout))
+			.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+		}
+
 		/**
 		 * Some MUI controls (eg. Radio/Checkbox) hide their native input via opacity:0,
 		 * which Selenium's isDisplayed()/elementToBeClickable() treats as not displayed.

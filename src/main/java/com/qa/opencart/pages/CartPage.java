@@ -15,6 +15,7 @@ public class CartPage {
 	private By checkoutBtn = By.xpath("//button[text()='Checkout']");
 	private By orderTotal = By.xpath("//div[@data-testid='cart-total']");
 	private By emptyCart = By.xpath("//div[@class='cart MuiBox-root css-0']");
+	private By toast = By.id("notistack-snackbar");
 	
 	public CartPage(WebDriver driver) {
 		this.driver = driver;
@@ -59,6 +60,7 @@ public class CartPage {
 	public void setProductQuantity(String productName, int targetQty) {
 		int currentQty = Integer.parseInt(eu.getElement(productQtyXpath(productName)).getText());	
 		while(currentQty < targetQty) {
+			eu.waitForInvisibilityOfElement(toast, 5);
 			eu.waitForElementToBeClickable(addQtyBtn(productName), 5).click();
 			try {
 				Thread.sleep(5000);
@@ -77,6 +79,7 @@ public class CartPage {
 	public void resetProductQuantity(String productName, int targetQty) {
 		int currentQty = Integer.parseInt(eu.getElement(productQtyXpath(productName)).getText());	
 		while(currentQty > targetQty) {
+			eu.waitForInvisibilityOfElement(toast, 5);
 			eu.waitForElementToBeClickable(minusQtyBtn(productName), 5).click();
 			try {
 				Thread.sleep(3000);
